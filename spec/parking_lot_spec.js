@@ -1,3 +1,5 @@
+'use strict';
+
 var ParkingLot = require('../parking_lot');
 
 describe('ParkingLot', function() {
@@ -10,44 +12,45 @@ describe('ParkingLot', function() {
     expect(parkingLot.vacancies()).toEqual(12);
   });
 
-  // it("can print a summary of the parking lot", function() {
-  //   var parkingLot = new ParkingLot(4);
-  //
-  //   expect(parkingLot.summary()).toEqual([
-  //     "Position 1: (empty)",
-  //     "Position 2: (empty)",
-  //     "Position 3: (empty)",
-  //     "Position 4: (empty)",
-  //   ]);
-  //
-  //   var parkingLot = new ParkingLot(3);
-  //
-  //   expect(parkingLot.summary()).toEqual([
-  //     "Position 1: (empty)",
-  //     "Position 2: (empty)",
-  //     "Position 3: (empty)",
-  //   ]);
-  // });
-  //
-  // it("records that a car with the given license plate was parked and decreases vacancies", function() {
-  //   var parkingLot = new ParkingLot(3);
-  //
-  //   parkingLot.park('aaa-123');
-  //   expect(parkingLot.vacancies()).toEqual(2);
-  //   expect(parkingLot.summary()).toEqual([
-  //     "Position 1: aaa-123",
-  //     "Position 2: (empty)",
-  //     "Position 3: (empty)",
-  //   ]);
-  //
-  //   parkingLot.park('bbb-456');
-  //   expect(parkingLot.vacancies()).toEqual(1);
-  //   expect(parkingLot.summary()).toEqual([
-  //     "Position 1: aaa-123",
-  //     "Position 2: bbb-456",
-  //     "Position 3: (empty)",
-  //   ]);
-  // });
+
+  it("can print a summary of the parking lot", function() {
+    var parkingLot = new ParkingLot(4);
+
+    expect(parkingLot.summary()).toEqual([
+      "Position 1: (empty)",
+      "Position 2: (empty)",
+      "Position 3: (empty)",
+      "Position 4: (empty)",
+    ]);
+
+    parkingLot = new ParkingLot(3);
+
+    expect(parkingLot.summary()).toEqual([
+      "Position 1: (empty)",
+      "Position 2: (empty)",
+      "Position 3: (empty)",
+    ]);
+  });
+
+  it("records that a car with the given license plate was parked and decreases vacancies", function() {
+    var parkingLot = new ParkingLot(3);
+
+    parkingLot.park('aaa-123');
+    expect(parkingLot.vacancies()).toEqual(2);
+    expect(parkingLot.summary()).toEqual([
+      "Position 1: aaa-123",
+      "Position 2: (empty)",
+      "Position 3: (empty)",
+    ]);
+
+    parkingLot.park('bbb-456');
+    expect(parkingLot.vacancies()).toEqual(1);
+    expect(parkingLot.summary()).toEqual([
+      "Position 1: aaa-123",
+      "Position 2: bbb-456",
+      "Position 3: (empty)",
+    ]);
+  });
   //
   // it("fills in empty spaces first", function() {
   //   var parkingLot = new ParkingLot(5);
